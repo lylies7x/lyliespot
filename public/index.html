@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lylies - Premium</title>
+  <link rel="icon" type="image/png" sizes="64x64" href="https://i.imgur.com/qKwnKiY.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="stylesheet" href="styles.css">
+</head>
+  <body>
+    <!-- Splash Screen -->
+    <div id="splash">
+      <img src="https://i.imgur.com/qKwnKiY.png" alt="Logo">
+    </div>
+
+    <div class="app" style="display:none;">
+      <aside class="sidebar">
+        <div class="brand"><img src="https://i.imgur.com/qKwnKiY.png" alt="Logo">Lylies Beta</div>
+        <div class="section-title">Principal</div>
+        <nav class="nav">
+          <a href="#" id="homeBtn"><i class="fa fa-house"></i>Inicio</a>
+          <a href="#" id="exploreBtn"><i class="fa fa-compass"></i>Explorar</a>
+          <a href="#" id="libraryBtn"><i class="fa fa-book"></i>Biblioteca</a>
+          <a href="premium.html" id="premiumBtn"><i class="fa fa-crown"></i>Premium</a>
+        </nav>
+        <div class="section-title">Playlist</div>
+        <div id="playlistSection"></div>
+        <div class="sidebar-bottom">
+          <a href="#" id="openLogin"><i class="fa fa-sign-in-alt"></i> Iniciar sesión</a>
+          <a href="#" id="openRegister"><i class="fa fa-user-plus"></i> Registrarse</a>
+          <a href="configuracion.html"><i class="fa fa-cog"></i> Configuración</a>
+          <a href="#" id="logoutBtn"><i class="fa fa-sign-out-alt"></i> Cerrar sesión</a>
+        </div>
+      </aside>
+
+      <main class="main">
+        <div class="searchbar"><input id="search" placeholder="Buscar música en Lylies..." /></div>
+        <div class="action-buttons">
+          <button id="createPlaylistBtn"><i class="fa fa-folder-plus"></i>Crear Playlist</button>
+          <button id="likedBtn"><i class="fa fa-heart"></i>Mis Me Gusta</button>
+        </div>
+        <div id="library" class="library"></div>
+      </main>
+    </div>
+
+    <!-- PLAYER -->
+    <div class="nowplaying" id="nowPlayingBar" style="display:none;">
+      <div class="np-left">
+        <div id="npCover" class="cover">🎵</div>
+        <div>
+          <div id="npTitle" style="font-weight:700">No se reproduce</div>
+          <div id="npArtist" class="artist" style="color:var(--muted)">-</div>
+        </div>
+      </div>
+      <div class="np-mid">
+        <div class="controls">
+          <button id="prevBtn" class="ctrlbtn"><svg viewBox="0 0 24 24"><path d="M6 19V5h2v14H6zm3.5-7l11-7v14l-11-7z"/></svg></button>
+          <button id="playPause" class="playbtn big"><svg id="playIcon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+          <button id="nextBtn" class="ctrlbtn"><svg viewBox="0 0 24 24"><path d="M18 5v14h-2V5h2zM5 19l11-7L5 5v14z"/></svg></button>
+        </div>
+      </div>
+      <div class="np-right">
+        <div class="volume-container">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="#fff"><path d="M7 9v6h4l5 5V4l-5 5H7z"/></svg>
+          <input id="volumeSlider" type="range" min="0" max="100" value="100">
+        </div>
+      </div>
+    </div>
+
+    <div id="ytPlayer"></div>
+
+    <!-- Modal Crear Playlist -->
+    <div class="modal-bg" id="createPlaylistModal">
+      <div class="modal">
+        <div class="cover-select" id="playlistCover">+</div>
+        <input type="text" id="playlistName" placeholder="Nombre de la playlist">
+        <button id="confirmCreatePlaylist">Crear Playlist</button>
+      </div>
+    </div>
+
+    <!-- Modal Seleccionar Playlist -->
+    <div class="modal-bg-select" id="selectPlaylistModal">
+      <div class="modal-select" id="playlistSelectList"><h3>Selecciona Playlist</h3></div>
+    </div>
+
+    <!-- Modal Login/Register -->
+    <div class="modal-bg-auth" id="authModal">
+      <div class="modal-auth">
+        <h3 id="authTitle">Login</h3>
+        <input type="text" id="authUsername" placeholder="Usuario">
+        <input type="password" id="authPassword" placeholder="Contraseña">
+        <button id="authSubmit">Enviar</button>
+        <button id="authSwitch">Cambiar a Registro</button>
+      </div>
+    </div>
+
+    <!-- Mensaje central -->
+    <div id="centerMessage"></div>
+
+    <script src="script.js"></script>
+  </body>
+  </html>
